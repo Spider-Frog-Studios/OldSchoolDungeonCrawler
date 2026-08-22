@@ -7,7 +7,7 @@ public class PlayerVisualRendering : MonoBehaviour
     [SerializeField] GameObject playerScreen;
 
     //Player Location
-    [SerializeField] Transform playerArrow;
+    [SerializeField] Transform playerTransform;
 
     //Locations of where to check for walls to render the player screen.
     [SerializeField] Transform rightCheck, rightUpCheck, leftCheck, leftUpCheck, upCheck, upUpCheck;
@@ -15,6 +15,7 @@ public class PlayerVisualRendering : MonoBehaviour
     //All player screens.
     [SerializeField] Sprite[] playerScreens;
 
+    //Wall LayerMask to check for walls in the scene.
     [SerializeField] LayerMask wallLayerMask;
 
     private enum ScreenState
@@ -53,12 +54,12 @@ public class PlayerVisualRendering : MonoBehaviour
 
     public void renderNextScreen()
     {
-        bool isRightWall = !Physics2D.Linecast(playerArrow.position, rightCheck.position, wallLayerMask);
-        bool isRightUpWall = !Physics2D.Linecast(playerArrow.position, rightUpCheck.position, wallLayerMask);
-        bool isLeftWall = !Physics2D.Linecast(playerArrow.position, leftCheck.position, wallLayerMask);
-        bool isLeftUpWall = !Physics2D.Linecast(playerArrow.position, leftUpCheck.position, wallLayerMask);
-        bool isUpWall = !Physics2D.Linecast(playerArrow.position, upCheck.position, wallLayerMask);
-        bool isUpUpWall = !Physics2D.Linecast(playerArrow.position, upUpCheck.position, wallLayerMask);
+        bool isRightWall = !Physics2D.Linecast(playerTransform.position, rightCheck.position, wallLayerMask);
+        bool isRightUpWall = !Physics2D.Linecast(playerTransform.position, rightUpCheck.position, wallLayerMask);
+        bool isLeftWall = !Physics2D.Linecast(playerTransform.position, leftCheck.position, wallLayerMask);
+        bool isLeftUpWall = !Physics2D.Linecast(playerTransform.position, leftUpCheck.position, wallLayerMask);
+        bool isUpWall = !Physics2D.Linecast(playerTransform.position, upCheck.position, wallLayerMask);
+        bool isUpUpWall = !Physics2D.Linecast(playerTransform.position, upUpCheck.position, wallLayerMask);
 
         // Determine the screen state based on the wall checks
         StringBuilder sb = new StringBuilder();
