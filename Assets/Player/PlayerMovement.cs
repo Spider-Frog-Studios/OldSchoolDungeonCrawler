@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Player Input from the Move Input System
+    //Player Input from the Move Input System.
     private Vector2 moveInput;
 
     //Player Location, the position to check for walls in front of the player.
@@ -17,18 +17,21 @@ public class PlayerMovement : MonoBehaviour
     //Wall LayerMask to check for walls in the scene.
     [SerializeField] LayerMask wallLayerMask;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool playerMoved;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created.
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {
         
     }
 
+    //Called when the player moves using the Move Input System.
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
@@ -37,43 +40,44 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput.x > 0)
         {
             playerTransform.localRotation *= Quaternion.Euler(0, 0, -90);
+            playerMoved = true;
 
         }
         //Turn Left
         else if (moveInput.x < 0)
         {
-            Debug.Log("Turning Left");
             playerTransform.localRotation *= Quaternion.Euler(0, 0, 90);
+            playerMoved = true;
         }
         //Move Forward if wall is not in front of the player.
         else if (moveInput.y > 0 && !Physics2D.Linecast(playerTransform.position, forwardCheck.position, wallLayerMask))
         {
-            Debug.Log("Trying to move");
             float directionFaced = playerTransform.localEulerAngles.z;
-            Debug.Log("Direction Faced: " + directionFaced);
+            playerMoved = true;
             if (directionFaced == 0)
             {
                 playerTransform.localPosition += new Vector3(0, 1, 0);
-                Debug.Log("Moving Up");
             }
             else if (directionFaced == 270)
             {
                 playerTransform.localPosition += new Vector3(1, 0, 0);
-                Debug.Log("Moving Right");
             }
             else if (directionFaced == 90)
             {
                 playerTransform.localPosition += new Vector3(-1, 0, 0);
-                Debug.Log("Moving Left");
             }
             else if (directionFaced == 180)
             {
                 playerTransform.localPosition += new Vector3(0, -1, 0);
-                Debug.Log("Moving Down");
             }
         }
-        //Update the player screen
-        playerScreen.GetComponent<PlayerVisualRendering>().renderNextScreen();
+        //Update the player screen.
+        if (playerMoved)
+        {
+            playerScreen.GetComponent<PlayerVisualRendering>().RenderNextScreen();
+            playerMoved = false;
+        }
+        
     }
 
 }

@@ -1,12 +1,16 @@
 using System.Text;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerVisualRendering : MonoBehaviour
 {
-    //What the player sees
+    //What the player sees.
     [SerializeField] GameObject playerScreen;
 
-    //Player Location
+    //Minimap Camera that follows the player.
+    [SerializeField] GameObject minimapCamera;
+
+    //Player location.
     [SerializeField] Transform playerTransform;
 
     //Locations of where to check for walls to render the player screen.
@@ -18,6 +22,7 @@ public class PlayerVisualRendering : MonoBehaviour
     //Wall LayerMask to check for walls in the scene.
     [SerializeField] LayerMask wallLayerMask;
 
+    //Enum to represent the different screen states based on wall checks.
     private enum ScreenState
     {
         deadEnd,
@@ -36,23 +41,24 @@ public class PlayerVisualRendering : MonoBehaviour
         twoForwardLeftRight,
         twoForwardUpLeft,
         twoForwardUpRight,
-        twoForwardUpLeftUpRight,
+        twoForwardUpLeftUpRight
         
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Start is called once before the first execution of Update after the MonoBehaviour is created.
     void Start()
     {
-        renderNextScreen();
+        RenderNextScreen();
     }
 
-    // Update is called once per frame
+    //Update is called once per frame.
     void Update()
     {
         
     }
 
-    public void renderNextScreen()
+    //Renders the next screen based on the player's position and the surrounding walls.
+    public void RenderNextScreen()
     {
         bool isRightWall = !Physics2D.Linecast(playerTransform.position, rightCheck.position, wallLayerMask);
         bool isRightUpWall = !Physics2D.Linecast(playerTransform.position, rightUpCheck.position, wallLayerMask);
@@ -61,7 +67,7 @@ public class PlayerVisualRendering : MonoBehaviour
         bool isUpWall = !Physics2D.Linecast(playerTransform.position, upCheck.position, wallLayerMask);
         bool isUpUpWall = !Physics2D.Linecast(playerTransform.position, upUpCheck.position, wallLayerMask);
 
-        // Determine the screen state based on the wall checks
+        // Determine the screen state based on the wall checks.
         StringBuilder sb = new StringBuilder();
         if (isUpWall)
         {
@@ -99,7 +105,16 @@ public class PlayerVisualRendering : MonoBehaviour
             sb.Append("UpRight");
         }
 
-        //Set the player screen sprite based on the determined screen state
-        playerScreen.GetComponent<SpriteRenderer>().sprite = playerScreens[(int)System.Enum.Parse(typeof(ScreenState), sb.ToString())];
+        //Set the player screen sprite based on the determined screen state.
+        playerScreen.GetComponent<SpriteRenderer>().sprite = playerScreens[playerScreens.Length - 1];
+        StartCoroutine(RenderNextScreenHelper(playerScreens[(int)System.Enum.Parse(typeof(ScreenState), sb.ToString())]));
+        minimapCamera.GetComponent<MinimapCameraFollow>().FollowPlayer();
+    }
+
+    private IEnumerator RenderNextScreenHelper(Sprite newScreen)
+    {
+        //Delay rendering by 0.1 seconds to have play effect when the player moves.
+        yield return new WaitForSeconds(0.1f);
+        playerScreen.GetComponent<SpriteRenderer>().sprite = newScreen;
     }
 }
