@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a337a3afeff12224eb861930847d5473
+guid: 542d12db823e05c4793cf274fa7aa76f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3737769083725197500
-    second: TCorridor_0
+      213: -5643509531392607167
+    second: LeftUpCorridor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TCorridor_0
+      name: LeftUpCorridor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44f4f1862d6c02cc0800000000000000
-      internalID: -3737769083725197500
+      spriteID: 14cffc65bf93ea1b0800000000000000
+      internalID: -5643509531392607167
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TCorridor_0: -3737769083725197500
+      LeftUpCorridor_0: -5643509531392607167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cff8043515945234cb4713c0762523a0
+guid: ccba2156b209187449b6370b92ffd0f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6971678223707060713
-    second: OpenRightAndForward1Corridor_0
+      213: -5789213491751267115
+    second: EndOfCorridor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OpenRightAndForward1Corridor_0
+      name: EndOfCorridor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e9b26c286060c060800000000000000
-      internalID: 6971678223707060713
+      spriteID: 5d45447700598afa0800000000000000
+      internalID: -5789213491751267115
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OpenRightAndForward1Corridor_0: 6971678223707060713
+      EndOfCorridor_0: -5789213491751267115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

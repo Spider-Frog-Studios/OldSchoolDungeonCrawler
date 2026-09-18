@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7c4c75fddd5c511488842b13c75f65db
+guid: 83a80dff8d894f647850cfa1b600ba21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5717946787378486544
-    second: OpenLeftAndRightCorridor_0
+      213: -4925207474959983868
+    second: OpenRightCorridor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OpenLeftAndRightCorridor_0
+      name: OpenRightCorridor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f228bd11b5c5a0b0800000000000000
-      internalID: -5717946787378486544
+      spriteID: 40b59e975e526abb0800000000000000
+      internalID: -4925207474959983868
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OpenLeftAndRightCorridor_0: -5717946787378486544
+      OpenRightCorridor_0: -4925207474959983868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
